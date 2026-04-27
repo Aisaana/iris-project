@@ -2,13 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Биометрика - Радужка глаза / Көздің нұрлы қабығы</title>
+    <title>Биометрия: Радужная оболочка глаза | Scholarpedia AIU</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="ru-mode"> <nav id="sidebar">
-        <div class="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Wikipedia-logo-v2-en.svg" width="60">
-            <p>Scholarpedia AIU</p>
+<body class="ru-mode">
+
+    <nav id="sidebar">
+        <div class="side-logo">
+            <div class="logo-text">Scholarpedia</div>
+            <div class="sub-logo">AIU Project 2026</div>
         </div>
 
         <div class="lang-switcher">
@@ -16,51 +18,86 @@
             <button onclick="setLang('kk')" id="btn-kk">Қазақша</button>
         </div>
 
-        <ul>
-            <li><a href="#intro"><span class="lang-ru">Введение</span><span class="lang-kk">Кіріспе</span></a></li>
-            <li><a href="#theory"><span class="lang-ru">Теория</span><span class="lang-kk">Теория</span></a></li>
-            <li><a href="#demo"><span class="lang-ru">Демо</span><span class="lang-kk">Демо</span></a></li>
-        </ul>
+        <div class="nav-group">
+            <div class="nav-title"><span class="lang-ru">СОДЕРЖАНИЕ</span><span class="lang-kk">МАЗМҰНЫ</span></div>
+            <ul>
+                <li><a href="#intro">1. <span class="lang-ru">Общая теория</span><span class="lang-kk">Жалпы теория</span></a></li>
+                <li><a href="#methods">2. <span class="lang-ru">Методы и алгоритмы</span><span class="lang-kk">Әдістер мен алгоритмдер</span></a></li>
+                <li><a href="#interface">3. <span class="lang-ru">Описание интерфейса</span><span class="lang-kk">Интерфейс сипаттамасы</span></a></li>
+                <li><a href="#process">4. <span class="lang-ru">Процесс разработки</span><span class="lang-kk">Әзірлеу процесі</span></a></li>
+            </ul>
+        </div>
     </nav>
 
-    <main id="content">
-        <h1 id="firstHeading">
-            <span class="lang-ru">Распознавание человека по радужной оболочке глаза</span>
-            <span class="lang-kk">Адамды көздің нұрлы қабығы арқылы тану</span>
-        </h1>
-        
-        <div class="authors">
-            <span class="lang-ru">Разработчик: Айсана, ИС-23A</span>
-            <span class="lang-kk">Әзірлеуші: Айсана, АЖ-23A</span>
+    <div id="main-header">
+        <div class="header-content">
+            <h1><span class="lang-ru">Распознавание радужной оболочки глаза</span><span class="lang-kk">Көздің нұрлы қабығын тану</span></h1>
+            <p><span class="lang-ru">Электронное учебное пособие по дисциплине "Биометрические системы"</span>
+               <span class="lang-kk">"Биометриялық жүйелер" пәні бойынша электрондық оқу құралы</span></p>
         </div>
-        <hr>
+    </div>
+
+    <main id="content">
+        <div class="auth-box">
+            <span class="lang-ru">Автор проекта: Айсана, студентка группы ИС-23A</span>
+            <span class="lang-kk">Жоба авторы: Айсана, АЖ-23A тобының студенті</span>
+        </div>
 
         <section id="intro">
-            <h2><span class="lang-ru">Введение</span><span class="lang-kk">Кіріспе</span></h2>
-            <p class="lang-ru">Этот проект исследует методы биометрической идентификации на основе текстурных признаков радужки.</p>
-            <p class="lang-kk">Бұл жоба көздің нұрлы қабығының текстуралық ерекшеліктеріне негізделген биометриялық идентификациялау әдістерін зерттейді.</p>
+            <h2><span class="lang-ru">Глава 1. Общая теория биометрии радужки</span><span class="lang-kk">1-тарау. Көз биометриясының жалпы теориясы</span></h2>
+            <p class="lang-ru">Радужная оболочка глаза является уникальным биометрическим признаком. Её формирование завершается к восьмому месяцу внутриутробного развития и остается практически неизменным на протяжении всей жизни. Вероятность совпадения двух радужных оболочек оценивается как $1$ к $10^{78}$.</p>
+            <p class="lang-kk">Көздің нұрлы қабығы бірегей биометриялық белгі болып табылады. Оның қалыптасуы құрсақтағы дамудың сегізінші айында аяқталады және өмір бойы өзгеріссіз қалады. Екі нұрлы қабықтың сәйкес келу ықтималдығы $10^{78}$-нен $1$ деп бағаланады.</p>
         </section>
 
-        <section id="theory">
-            <h2><span class="lang-ru">Теоретическая база</span><span class="lang-kk">Теориялық негіз</span></h2>
-            <p class="lang-ru">Используются алгоритмы HOG и LBP для создания уникального цифрового кода.</p>
-            <p class="lang-kk">Бірегей сандық кодты жасау үшін HOG және LBP алгоритмдері қолданылады.</p>
+        <section id="methods">
+            <h2><span class="lang-ru">Глава 2. Методы и алгоритмы обработки</span><span class="lang-kk">2-тарау. Өңдеу әдістері мен алгоритмдері</span></h2>
+            <p class="lang-ru">В данном исследовании реализован комбинированный подход к извлечению признаков (Feature Extraction):</p>
+            <p class="lang-kk">Бұл зерттеуде белгілерді алудың аралас тәсілі іске асырылды (Feature Extraction):</p>
+            
+            <div class="info-block">
+                <h4>HOG (Histogram of Oriented Gradients)</h4>
+                <p class="lang-ru">Метод используется для описания структуры глаза путем подсчета направлений градиентов интенсивности. Это позволяет системе быть устойчивой к изменениям освещения.</p>
+                <p class="lang-kk">Әдіс интенсивтілік градиенттерінің бағыттарын есептеу арқылы көздің құрылымын сипаттау үшін қолданылады. Бұл жүйені жарықтандырудың өзгеруіне төзімді етеді.</p>
+                
+                <h4>LBP (Local Binary Patterns)</h4>
+                <p class="lang-ru">Алгоритм текстурного анализа, который кодирует локальную структуру радужки, сравнивая каждый пиксель с окружающими его соседями. Идеально подходит для выявления микро-узоров.</p>
+                <p class="lang-kk">Әрбір пиксельді оның айналасындағы көршілерімен салыстыра отырып, нұрлы қабықтың жергілікті құрылымын кодтайтын текстуралық талдау алгоритмі.</p>
+            </div>
+        </section>
+
+        <section id="interface">
+            <h2><span class="lang-ru">Глава 3. Описание пользовательского интерфейса</span><span class="lang-kk">3-тарау. Пайдаланушы интерфейсінің сипаттамасы</span></h2>
+            <p class="lang-ru">Интерфейс разработан на языке Python с использованием библиотеки OpenCV. Он включает в себя:</p>
+            <ul class="lang-ru">
+                <li>Окно видеопотока с захватом лица и глаз в реальном времени.</li>
+                <li>Индикатор уверенности модели (Confidence Score).</li>
+                <li>Цветовое кодирование: Зеленая рамка при успешной идентификации (>70%).</li>
+            </ul>
+            <ul class="lang-kk">
+                <li>Нақты уақыт режимінде бет пен көзді түсіретін бейне ағыны терезесі.</li>
+                <li>Модельдің сенімділік индикаторы (Confidence Score).</li>
+                <li>Түсті кодтау: Сәтті идентификация кезінде жасыл жақтау (>70%).</li>
+            </ul>
+        </section>
+
+        <section id="process">
+            <h2><span class="lang-ru">Глава 4. Процесс разработки и результаты</span><span class="lang-kk">4-тарау. Әзірлеу процесі және нәтижелері</span></h2>
+            <div class="process-box">
+                <p class="lang-ru"><strong>Этап 1:</strong> Сбор датасета (по 20 изображений для каждой личности).<br>
+                <strong>Этап 2:</strong> Обучение модели Random Forest Classifier.<br>
+                <strong>Этап 3:</strong> Интеграция каскадов Хаара для обнаружения объектов.</p>
+                <p class="lang-kk"><strong>1-кезең:</strong> Датасет жинау (әр тұлға үшін 20 кескіннен).<br>
+                <strong>2-кезең:</strong> Random Forest классификаторын оқыту.<br>
+                <strong>3-кезең:</strong> Объектілерді анықтау үшін Хаар каскадтарын интеграциялау.</p>
+            </div>
         </section>
     </main>
 
     <script>
         function setLang(lang) {
-            if (lang === 'ru') {
-                document.body.classList.add('ru-mode');
-                document.body.classList.remove('kk-mode');
-                document.getElementById('btn-ru').classList.add('active');
-                document.getElementById('btn-kk').classList.remove('active');
-            } else {
-                document.body.classList.add('kk-mode');
-                document.body.classList.remove('ru-mode');
-                document.getElementById('btn-kk').classList.add('active');
-                document.getElementById('btn-ru').classList.remove('active');
-            }
+            document.body.className = lang + '-mode';
+            document.getElementById('btn-ru').className = (lang === 'ru' ? 'active' : '');
+            document.getElementById('btn-kk').className = (lang === 'kk' ? 'active' : '');
         }
     </script>
 </body>
