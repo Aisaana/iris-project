@@ -32,11 +32,48 @@ body {
 #sidebar a:hover { text-decoration: underline; }
 
 #main-header {
-    background: linear-gradient(to right, #4c8ebc, #3366cc); 
+    background: linear-gradient(135deg, #4c8ebc 0%, #3366cc 100%);
     color: white;
-    padding: 40px 60px;
-    margin-left: 220px;
-    width: calc(100% - 220px);
+    padding: 30px 60px;
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    box-sizing: border-box;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 20px;
+}
+
+.header-text {
+    flex: 1; 
+}
+
+.header-screenshots {
+    display: flex;
+    gap: 15px;
+}
+
+.head-img {
+    width: 220px; 
+    height: auto;
+    border: 3px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.head-img:hover {
+    transform: scale(1.1); 
+}
+
+@media (max-width: 1000px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 #content {
