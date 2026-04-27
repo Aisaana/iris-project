@@ -1,0 +1,29 @@
+/* Базовые стили переключателя */
+.lang-switcher {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.lang-switcher button {
+    background: #fff;
+    border: 1px solid #a2a9b1;
+    padding: 3px 7px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.lang-switcher button.active {
+    background: #eef7ff;
+    font-weight: bold;
+    border-color: #3366cc;
+}
+
+/* Логика скрытия/показа */
+.ru-mode .lang-kk { display: none; }
+.kk-mode .lang-ru { display: none; }
+
+/* Сохраняем блочную структуру для параграфов */
+.ru-mode p.lang-ru, .kk-mode p.lang-kk {
+    display: block;
+}
