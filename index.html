@@ -1,93 +1,67 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>👁️ Распознавание по радужке</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, sans-serif; line-height: 1.6; max-width: 900px; margin: auto; padding: 20px; }
-    header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px; }
-    nav { display: flex; gap: 15px; flex-wrap: wrap; margin: 20px 0; }
-    nav a { background: #f0f0f0; padding: 8px 16px; border-radius: 20px; text-decoration: none; color: #333; font-size: 14px; }
-    nav a:hover { background: #667eea; color: white; }
-    section { margin: 30px 0; padding: 20px; background: #f9f9f9; border-radius: 8px; }
-    code { background: #2d2d2d; color: #f8f8f2; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
-    .step { counter-increment: step; position: relative; padding-left: 30px; margin: 15px 0; }
-    .step::before { content: counter(step); position: absolute; left: 0; top: 0; 
-                    background: #667eea; color: white; width: 24px; height: 24px; 
-                    border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; }
-    @media (max-width: 600px) { nav { flex-direction: column; } }
-  </style>
+    <meta charset="UTF-8">
+    <title>Биометрика - Радужка глаза / Көздің нұрлы қабығы</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="ru-mode"> <nav id="sidebar">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Wikipedia-logo-v2-en.svg" width="60">
+            <p>Scholarpedia AIU</p>
+        </div>
 
-<header>
-  <h1>👁️ Нейросеть: Распознавание по радужке глаза</h1>
-  <p>Электронный учебник для студентов • Биометрическая идентификация</p>
-</header>
+        <div class="lang-switcher">
+            <button onclick="setLang('ru')" id="btn-ru" class="active">Русский</button>
+            <button onclick="setLang('kk')" id="btn-kk">Қазақша</button>
+        </div>
 
-<nav>
-  <a href="#theory">📚 Теория</a>
-  <a href="#setup">⚙️ Установка</a>
-  <a href="#code">💻 Код</a>
-  <a href="#run">▶️ Запуск</a>
-  <a href="https://github.com/ВАШ_НИК/iris-project" target="_blank">🔗 GitHub</a>
-</nav>
+        <ul>
+            <li><a href="#intro"><span class="lang-ru">Введение</span><span class="lang-kk">Кіріспе</span></a></li>
+            <li><a href="#theory"><span class="lang-ru">Теория</span><span class="lang-kk">Теория</span></a></li>
+            <li><a href="#demo"><span class="lang-ru">Демо</span><span class="lang-kk">Демо</span></a></li>
+        </ul>
+    </nav>
 
-<section id="theory">
-  <h2>📚 Как это работает?</h2>
-  <div class="step">Радужка глаза имеет уникальный узор, который не меняется с возрастом</div>
-  <div class="step">Мы извлекаем признаки: <code>HOG</code> (градиенты) + <code>LBP</code> (текстура)</div>
-  <div class="step">Обучаем модель <code>Random Forest</code> различать людей по этим признакам</div>
-  <div class="step">В реальном времени детектируем глаз через <code>MediaPipe</code> и классифицируем</div>
-</section>
+    <main id="content">
+        <h1 id="firstHeading">
+            <span class="lang-ru">Распознавание человека по радужной оболочке глаза</span>
+            <span class="lang-kk">Адамды көздің нұрлы қабығы арқылы тану</span>
+        </h1>
+        
+        <div class="authors">
+            <span class="lang-ru">Разработчик: Айсана, ИС-23A</span>
+            <span class="lang-kk">Әзірлеуші: Айсана, АЖ-23A</span>
+        </div>
+        <hr>
 
-<section id="setup">
-  <h2>⚙️ Установка за 2 минуты</h2>
-  <pre><code># 1. Клонировать репозиторий
-git clone https://github.com/ВАШ_НИК/iris-project
-cd iris-project
+        <section id="intro">
+            <h2><span class="lang-ru">Введение</span><span class="lang-kk">Кіріспе</span></h2>
+            <p class="lang-ru">Этот проект исследует методы биометрической идентификации на основе текстурных признаков радужки.</p>
+            <p class="lang-kk">Бұл жоба көздің нұрлы қабығының текстуралық ерекшеліктеріне негізделген биометриялық идентификациялау әдістерін зерттейді.</p>
+        </section>
 
-# 2. Установить зависимости
-pip install -r requirements.txt
+        <section id="theory">
+            <h2><span class="lang-ru">Теоретическая база</span><span class="lang-kk">Теориялық негіз</span></h2>
+            <p class="lang-ru">Используются алгоритмы HOG и LBP для создания уникального цифрового кода.</p>
+            <p class="lang-kk">Бірегей сандық кодты жасау үшін HOG және LBP алгоритмдері қолданылады.</p>
+        </section>
+    </main>
 
-# 3. Собрать данные (минимум 3 человека × 20 фото)
-python code/collect_faces.py
-
-# 4. Обучить модель
-python code/train_faces.py
-
-# 5. Запустить распознавание
-python code/recognize_face.py</code></pre>
-</section>
-
-<section id="code">
-  <h2>💻 Ключевые фрагменты кода</h2>
-  <h3>Извлечение признаков:</h3>
-  <pre><code>hog_feat = hog(img, pixels_per_cell=(8,8), feature_vector=True)
-lbp = local_binary_pattern(img, P=8, R=1)
-features = np.concatenate([hog_feat, lbp_hist])</code></pre>
-  
-  <h3>Обучение модели:</h3>
-  <pre><code>model = RandomForestClassifier(n_estimators=100)
-model.fit(X_train, y_train)  # X — признаки, y — метки людей</code></pre>
-</section>
-
-<section id="run">
-  <h2>▶️ Демонстрация</h2>
-  <p><strong>Требования:</strong></p>
-  <ul>
-    <li>Веб-камера</li>
-    <li>Python 3.8+</li>
-    <li>Хорошее освещение 😊</li>
-  </ul>
-  <p><em>Запустите <code>recognize_face.py</code> и смотрите в камеру — система покажет, кого она "видит"!</em></p>
-</section>
-
-<footer style="text-align: center; margin-top: 40px; color: #666;">
-  <p>🎓 Учебный проект • 2026 • <a href="code/">📁 Исходный код</a></p>
-</footer>
-
+    <script>
+        function setLang(lang) {
+            if (lang === 'ru') {
+                document.body.classList.add('ru-mode');
+                document.body.classList.remove('kk-mode');
+                document.getElementById('btn-ru').classList.add('active');
+                document.getElementById('btn-kk').classList.remove('active');
+            } else {
+                document.body.classList.add('kk-mode');
+                document.body.classList.remove('ru-mode');
+                document.getElementById('btn-kk').classList.add('active');
+                document.getElementById('btn-ru').classList.remove('active');
+            }
+        }
+    </script>
 </body>
 </html>
