@@ -1,29 +1,67 @@
-/* Базовые стили переключателя */
-.lang-switcher {
+body {
+    margin: 0; padding: 0;
     display: flex;
-    gap: 5px;
-    margin-bottom: 20px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: #f6f6f6;
+    scroll-behavior: smooth; /* Это чинит кнопки навигации */
 }
+
+/* Sidebar */
+#sidebar {
+    width: 180px;
+    background: #f6f6f6;
+    border-right: 1px solid #a7d7f9;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+}
+
+.side-logo { margin-bottom: 30px; }
+.logo-text { font-size: 24px; color: #333; font-family: serif; }
+.sub-logo { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
 .lang-switcher button {
-    background: #fff;
-    border: 1px solid #a2a9b1;
-    padding: 3px 7px;
-    cursor: pointer;
-    font-size: 11px;
+    border: 1px solid #ccc; background: white; cursor: pointer; padding: 5px; font-size: 10px;
+}
+.lang-switcher button.active { background: #3366cc; color: white; border-color: #3366cc; }
+
+.nav-group { margin-top: 20px; }
+.nav-title { font-weight: bold; font-size: 12px; border-bottom: 1px solid #aaa; margin-bottom: 10px; }
+#sidebar ul { padding: 0; list-style: none; }
+#sidebar li { margin-bottom: 8px; font-size: 13px; }
+#sidebar a { color: #0645ad; text-decoration: none; }
+#sidebar a:hover { text-decoration: underline; }
+
+/* Main Content */
+#main-header {
+    background: linear-gradient(to right, #4c8ebc, #3366cc); /* Синяя шапка как на Scholarpedia */
+    color: white;
+    padding: 40px 60px;
+    margin-left: 220px;
+    width: calc(100% - 220px);
 }
 
-.lang-switcher button.active {
-    background: #eef7ff;
-    font-weight: bold;
-    border-color: #3366cc;
+#content {
+    margin-left: 220px;
+    padding: 40px 60px;
+    background: white;
+    min-height: 100vh;
 }
 
-/* Логика скрытия/показа */
+h2 { border-bottom: 1px solid #a2a9b1; padding-bottom: 5px; color: #000; font-family: serif; }
+
+.auth-box { font-style: italic; color: #666; margin-bottom: 20px; }
+
+.steps-grid { display: flex; gap: 20px; margin: 20px 0; }
+.step-card { border: 1px solid #ddd; padding: 15px; background: #fafafa; flex: 1; border-radius: 4px; }
+
+.demo-placeholder {
+    border: 2px dashed #3366cc;
+    padding: 40px;
+    text-align: center;
+    background: #f0f7ff;
+}
+
+/* Lang logic */
 .ru-mode .lang-kk { display: none; }
 .kk-mode .lang-ru { display: none; }
-
-/* Сохраняем блочную структуру для параграфов */
-.ru-mode p.lang-ru, .kk-mode p.lang-kk {
-    display: block;
-}
