@@ -3,10 +3,9 @@ body {
     display: flex;
     font-family: 'Helvetica', Arial, sans-serif;
     background-color: #f6f6f6;
-    scroll-behavior: smooth; /* Это чинит кнопки навигации */
+    scroll-behavior: smooth; 
 }
 
-/* Sidebar */
 #sidebar {
     width: 180px;
     background: #f6f6f6;
@@ -32,9 +31,8 @@ body {
 #sidebar a { color: #0645ad; text-decoration: none; }
 #sidebar a:hover { text-decoration: underline; }
 
-/* Main Content */
 #main-header {
-    background: linear-gradient(to right, #4c8ebc, #3366cc); /* Синяя шапка как на Scholarpedia */
+    background: linear-gradient(to right, #4c8ebc, #3366cc); 
     color: white;
     padding: 40px 60px;
     margin-left: 220px;
@@ -62,6 +60,5 @@ h2 { border-bottom: 1px solid #a2a9b1; padding-bottom: 5px; color: #000; font-fa
     background: #f0f7ff;
 }
 
-/* Lang logic */
 .ru-mode .lang-kk { display: none; }
 .kk-mode .lang-ru { display: none; }
